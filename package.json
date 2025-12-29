@@ -1,10 +1,10 @@
 {
-  "name": "package-name",
+  "name": "enex-io",
   "version": "0.1.0",
-  "description": "A short, honest description of what this package does.",
+  "description": "High-performance parser and generator for Evernote/Apple Notes (.enex) files.",
   "type": "module",
   "bin": {
-    "package-name": "dist/cli.js"
+    "enex-io": "dist/cli.js"
   },
   "main": "./dist/index.js",
   "exports": {
@@ -25,10 +25,13 @@
     "lint": "xo"
   },
   "keywords": [
-    "node",
-    "cli",
-    "npm",
-    "utility"
+    "fs",
+    "converter",
+    "enex",
+    "evernote",
+    "apple-notes",
+    "parser",
+    "xml"
   ],
   "author": {
     "name": "mgks",
@@ -37,13 +40,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mgks/package-name.git"
+    "url": "git+https://github.com/mgks/enex-io.git"
   },
   "bugs": {
-    "url": "https://github.com/mgks/package-name/issues"
+    "url": "https://github.com/mgks/enex-io/issues"
   },
-  "homepage": "https://github.com/mgks/package-name#readme",
+  "homepage": "https://github.com/mgks/enex-io#readme",
   "funding": "https://github.com/sponsors/mgks",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "commander": "^11.1.0",
+    "dayjs": "^1.11.10"
+  },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "tsup": "^8.0.0",
