@@ -1,0 +1,60 @@
+{
+  "name": "package-name",
+  "version": "0.1.0",
+  "description": "A short, honest description of what this package does.",
+  "type": "module",
+  "bin": {
+    "package-name": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "test": "node --import=tsx --test test/*.ts",
+    "build": "tsup",
+    "prepublishOnly": "npm run build && npm test",
+    "lint": "xo"
+  },
+  "keywords": [
+    "node",
+    "cli",
+    "npm",
+    "utility"
+  ],
+  "author": {
+    "name": "mgks",
+    "url": "https://mgks.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgks/package-name.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mgks/package-name/issues"
+  },
+  "homepage": "https://github.com/mgks/package-name#readme",
+  "funding": "https://github.com/sponsors/mgks",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "xo": "^0.56.0"
+  },
+  "xo": {
+    "prettier": true,
+    "rules": {
+      "unicorn/filename-case": "off"
+    }
+  }
+}
