@@ -1,16 +1,17 @@
 # enex-io
 
-> High-performance parser and generator for Evernote & Apple Notes (.enex) files.
+**High-performance parser and generator for Evernote & Apple Notes (.enex) files.**
 
-<a href="https://www.npmjs.com/package/enex-io"><img src="https://img.shields.io/npm/v/enex-io.svg?style=flat-square&color=007acc" alt="npm version"></a>
-<a href="https://bundlephobia.com/package/enex-io"><img src="https://img.shields.io/bundlephobia/minzip/enex-io?style=flat-square" alt="size"></a>
-<a href="https://www.npmjs.com/package/enex-io"><img src="https://img.shields.io/npm/dt/enex-io.svg?style=flat-square&color=success" alt="npm downloads"></a>
-<a href="https://github.com/mgks/enex-io/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mgks/enex-io.svg?style=flat-square&color=blue" alt="license"></a>
-<a href="https://github.com/mgks/enex-io/stargazers"><img src="https://img.shields.io/github/stars/mgks/enex-io?style=flat-square&logo=github" alt="stars"></a>
+<p>
+  <img src="https://img.shields.io/npm/v/enex-io.svg?style=flat-square&color=d25353" alt="npm version">
+  <img src="https://img.shields.io/bundlephobia/minzip/enex-io?style=flat-square&color=38bd24" alt="size">
+  <img src="https://img.shields.io/npm/dt/enex-io.svg?style=flat-square&color=success&color=38bd24" alt="npm downloads">
+  <img src="https://img.shields.io/github/license/mgks/enex-io.svg?style=flat-square&color=blue" alt="license">
+</p>
 
 A lightweight, zero-dependency Node.js library and CLI tool to convert **.enex** files to JSON and back. Perfect for migrations, backups, and data processing.
 
-## 📦 Installation
+## Installation
 
 ```bash
 # Install globally for CLI usage
@@ -20,7 +21,7 @@ npm install -g enex-io
 npm install enex-io
 ```
 
-## 💻 CLI Usage
+## CLI Usage
 
 **Convert ENEX to JSON**
 ```bash
@@ -42,7 +43,7 @@ enex-io to-enex backup.json
 --help                Show help
 ```
 
-## 🔧 API Usage
+## API Usage
 
 Built for modern Node.js environments (ESM).
 
@@ -71,7 +72,7 @@ const enexOutput = generateEnex(myNotes);
 fs.writeFileSync('export.enex', enexOutput);
 ```
 
-## 🧩 Type Definition
+## Type Definition
 
 The standard Note object used by the parser and generator:
 
