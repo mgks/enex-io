@@ -21,7 +21,9 @@ npm install -g enex-io
 npm install enex-io
 ```
 
-## CLI Usage
+## Usage
+
+### CLI
 
 **Convert ENEX to JSON**
 ```bash
@@ -43,7 +45,7 @@ enex-io to-enex backup.json
 --help                Show help
 ```
 
-## API Usage
+### API
 
 Built for modern Node.js environments (ESM).
 
@@ -72,7 +74,7 @@ const enexOutput = generateEnex(myNotes);
 fs.writeFileSync('export.enex', enexOutput);
 ```
 
-## Type Definition
+### Type Definition
 
 The standard Note object used by the parser and generator:
 
