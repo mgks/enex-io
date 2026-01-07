@@ -3,10 +3,10 @@
 **High-performance parser and generator for Evernote & Apple Notes (.enex) files.**
 
 <p>
-  <img src="https://img.shields.io/npm/v/enex-io.svg?style=flat-square&color=d25353" alt="npm version">
-  <img src="https://img.shields.io/bundlephobia/minzip/enex-io?style=flat-square&color=38bd24" alt="size">
-  <img src="https://img.shields.io/npm/dt/enex-io.svg?style=flat-square&color=success&color=38bd24" alt="npm downloads">
-  <img src="https://img.shields.io/github/license/mgks/enex-io.svg?style=flat-square&color=blue" alt="license">
+  <a href="https://www.npmjs.com/package/enex-io"><img src="https://img.shields.io/npm/v/enex-io.svg?style=flat-square&color=d25353" alt="npm version"></a>
+  <a href="https://bundlephobia.com/package/enex-io"><img src="https://img.shields.io/bundlephobia/minzip/enex-io?style=flat-square&color=38bd24" alt="size"></a>
+  <a href="https://www.npmjs.com/package/enex-io?activeTab=versions"><img src="https://img.shields.io/npm/dt/enex-io.svg?style=flat-square&color=success&color=38bd24" alt="npm downloads"></a>
+  <a href="https://github.com/mgks/enex-io/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mgks/enex-io.svg?style=flat-square&color=blue" alt="license"></a>
 </p>
 
 A lightweight, zero-dependency Node.js library and CLI tool to convert **.enex** files to JSON and back. Perfect for migrations, backups, and data processing.
