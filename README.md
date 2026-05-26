@@ -5,11 +5,18 @@
 <p>
   <a href="https://www.npmjs.com/package/enex-io"><img src="https://img.shields.io/npm/v/enex-io.svg?style=flat-square&color=d25353" alt="npm version"></a>
   <a href="https://bundlephobia.com/package/enex-io"><img src="https://img.shields.io/bundlephobia/minzip/enex-io?style=flat-square&color=38bd24" alt="size"></a>
-  <a href="https://www.npmjs.com/package/enex-io?activeTab=versions"><img src="https://img.shields.io/npm/dt/enex-io.svg?style=flat-square&color=success&color=38bd24" alt="npm downloads"></a>
+  <a href="https://www.npmjs.com/package/enex-io?activeTab=versions"><img src="https://img.shields.io/npm/dt/enex-io.svg?style=flat-square&color=38bd24" alt="npm downloads"></a>
   <a href="https://github.com/mgks/enex-io/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mgks/enex-io.svg?style=flat-square&color=blue" alt="license"></a>
 </p>
 
-A lightweight, zero-dependency Node.js library and CLI tool to convert **.enex** files to JSON and back. Perfect for migrations, backups, and data processing.
+A lightweight Node.js library and CLI tool that reads and writes **.enex** files — the format used by both Evernote and Apple Notes. Ideal for migrations, backups, and any pipeline that needs to move notes in or out of the Apple / Evernote ecosystem.
+
+## Features
+
+*   Parse `.enex` archives into structured JSON objects.
+*   Generate valid `.enex` files from JSON, including proper `<created>` and `<updated>` timestamps, tags, and HTML content.
+*   Handles XSS-safe XML escaping for titles and content.
+*   Dates are converted to and from Evernote's compact UTC format (`YYYYMMDDTHHmmssZ`) automatically.
 
 ## Installation
 
@@ -17,7 +24,7 @@ A lightweight, zero-dependency Node.js library and CLI tool to convert **.enex**
 # Install globally for CLI usage
 npm install -g enex-io
 
-# Install as a dependency in your project
+# Install as a project dependency
 npm install enex-io
 ```
 
@@ -25,41 +32,39 @@ npm install enex-io
 
 ### CLI
 
-**Convert ENEX to JSON**
 ```bash
+# Parse ENEX → JSON
 enex-io to-json my-notes.enex
 # Output: my-notes.json
-```
 
-**Convert JSON to ENEX**
-```bash
+# Generate ENEX from JSON
 enex-io to-enex backup.json
 # Output: backup.enex
 ```
 
-**Options**
-```bash
+**Options:**
+```
 -o, --output <path>   Specify output file path
--p, --pretty          Pretty print JSON output (default: true)
+-p, --pretty          Pretty-print JSON output (default: true)
 --version             Show version number
 --help                Show help
 ```
 
 ### API
 
-Built for modern Node.js environments (ESM).
-
 ```javascript
 import { parseEnex, generateEnex } from 'enex-io';
 import fs from 'fs';
 
-// 1. Parse ENEX to Object
+// 1. Parse ENEX → Note objects
 const xml = fs.readFileSync('notes.enex', 'utf-8');
 const notes = parseEnex(xml);
 
-console.log(notes[0].title); // "My Note"
+console.log(notes[0].title);   // "My Note"
+console.log(notes[0].created); // ISO 8601 string
+console.log(notes[0].tags);    // ['work', 'ideas']
 
-// 2. Generate ENEX from Object
+// 2. Generate ENEX from Note objects
 const myNotes = [
   {
     title: "Hello World",
@@ -70,23 +75,26 @@ const myNotes = [
   }
 ];
 
-const enexOutput = generateEnex(myNotes);
-fs.writeFileSync('export.enex', enexOutput);
+const enex = generateEnex(myNotes, { application: 'MyApp' });
+fs.writeFileSync('export.enex', enex);
 ```
 
 ### Type Definition
 
-The standard Note object used by the parser and generator:
-
 ```typescript
 interface Note {
   title: string;
-  content: string; // HTML content string
+  content: string;    // HTML content
   tags: string[];
-  created: string; // ISO 8601 Date String
-  updated: string; // ISO 8601 Date String
+  created: string;    // ISO 8601
+  updated: string;    // ISO 8601
   author?: string;
   sourceUrl?: string;
+}
+
+interface EnexOptions {
+  version?: string;
+  application?: string; // Appears in the <en-export> header
 }
 ```
 
