@@ -4,8 +4,6 @@
 
 <p>
   <a href="https://www.npmjs.com/package/enex-io"><img src="https://img.shields.io/npm/v/enex-io.svg?style=flat-square&color=d25353" alt="npm version"></a>
-  <a href="https://bundlephobia.com/package/enex-io"><img src="https://img.shields.io/bundlephobia/minzip/enex-io?style=flat-square&color=38bd24" alt="size"></a>
-  <a href="https://www.npmjs.com/package/enex-io?activeTab=versions"><img src="https://img.shields.io/npm/dt/enex-io.svg?style=flat-square&color=38bd24" alt="npm downloads"></a>
   <a href="https://github.com/mgks/enex-io/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mgks/enex-io.svg?style=flat-square&color=blue" alt="license"></a>
 </p>
 
