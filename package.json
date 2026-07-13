@@ -19,7 +19,7 @@
   },
   "sideEffects": false,
   "scripts": {
-    "test": "node --import=tsx --test test/*.ts",
+    "test": "node --import=tsx --test test/*.test.mjs",
     "build": "tsup",
     "prepublishOnly": "npm run build && npm test",
     "lint": "xo"

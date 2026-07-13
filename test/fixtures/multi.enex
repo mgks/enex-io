@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE en-export SYSTEM "http://xml.evernote.com/pub/evernote-export3.dtd">
+<en-export export-date="20260501T120000Z" application="NotesMigrator" version="1.0">
+  <note>
+    <title>Shopping list</title>
+    <content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note><div><ul><li>Milk</li><li>Bread</li></ul></div><div><en-media type="image/png" hash="91e42db1c66c0b276abf6234dc50b2eb"/></div></en-note>]]></content>
+    <created>20260115T103000Z</created>
+    <updated>20260115T110000Z</updated>
+    <tag>errands</tag>
+    <tag>home</tag>
+    <note-attributes>
+      <author>Ghazi</author>
+      <source-url>https://keep.google.com/#NOTE/abc</source-url>
+    </note-attributes>
+    <resource>
+      <data encoding="base64">iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=</data>
+      <mime>image/png</mime>
+      <resource-attributes>
+        <file-name>note.png</file-name>
+      </resource-attributes>
+    </resource>
+  </note>
+  <note>
+    <title>Plan: ship 0.3</title>
+    <content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note><h1>Plan</h1><p>Do the things.</p><en-todo checked="true"/>done item</en-note>]]></content>
+    <created>20260201T090000Z</created>
+    <updated>20260202T090000Z</updated>
+  </note>
+  <note>
+    <title>Legacy note with bad date</title>
+    <content><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">
+<en-note>Legacy note body.</en-note>]]></content>
+    <created>NOT-A-DATE</created>
+    <updated></updated>
+  </note>
+</en-export>
