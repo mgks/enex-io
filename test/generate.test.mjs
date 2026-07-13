@@ -94,6 +94,25 @@ test('generateEnex: null dates are emitted as empty elements (no "now" lie)', ()
   assert.doesNotMatch(xml, /<created>\d{8}T\d{6}Z<\/created>/);
 });
 
+test('generateEnex: dates are always emitted in UTC, regardless of local timezone', () => {
+  // The runtime might have any local timezone; the ENEX output must use
+  // the trailing "Z" (UTC) and never "+HH:MM".
+  const xml = generateEnex(
+    [{ title: 'T', content: 'x', created: '2021-01-01T00:00:00Z', updated: '2021-01-01T00:00:00Z', tags: [] }]
+  );
+  assert.match(xml, /<created>20210101T000000Z<\/created>/);
+  assert.doesNotMatch(xml, /\+\d{2}:?\d{2}/);
+});
+
+test('generateEnex: dates provided with non-UTC offset get normalised to UTC', () => {
+  const xml = generateEnex(
+    [{ title: 'T', content: 'x', created: '2021-01-01T05:30:00+05:30', updated: '2021-01-02T05:30:00+05:30', tags: [] }]
+  );
+  // 2021-01-01T05:30:00 in IST (UTC+5:30) is 2021-01-01T00:00:00Z.
+  assert.match(xml, /<created>20210101T000000Z<\/created>/);
+  assert.match(xml, /<updated>20210102T000000Z<\/updated>/);
+});
+
 test('generateEnex: emits <note-attributes> when author/sourceUrl set', () => {
   const xml = generateEnex(
     [{

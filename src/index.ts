@@ -1,6 +1,9 @@
 import * as cheerio from 'cheerio';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc.js';
 import { Note, NoteAttachment, EnexOptions } from './types.js';
+
+dayjs.extend(utc);
 
 const ENEXPORT_DATE_HEADER = 'export-date';
 
@@ -9,7 +12,7 @@ const ENEXPORT_DATE_HEADER = 'export-date';
 // <en-media hash="..."> markers inside the note body. Hashes are auto-computed
 // when the caller did not supply one.
 export function generateEnex(notes: Note[], options: EnexOptions = {}): string {
-  const exportDate = dayjs().format('YYYYMMDDTHHmmssZ');
+  const exportDate = dayjs.utc().format('YYYYMMDDTHHmmss') + 'Z';
   const app = escapeXmlAttr(options.application || 'enex-io');
   const version = options.version || '1.0';
   const normalize = options.normalize !== false;
@@ -194,11 +197,14 @@ function parseEnxDate(s: string): string | null {
 }
 
 // Render an ISO date (or null) in ENEX compact form. Null stays null.
+// ENEX timestamps are required to be UTC with a trailing "Z". Without the
+// utc plugin loaded for dayjs, format('Z') would silently emit the local
+// timezone offset (e.g. "+05:30") and Apple Notes would refuse the file.
 function formatDate(iso: string | null | undefined): string {
   if (!iso) return '';
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return '';
-  return dayjs(d).format('YYYYMMDDTHHmmssZ');
+  return dayjs.utc(d).format('YYYYMMDDTHHmmss') + 'Z';
 }
 
 // Hex MD5 over a base64 string. Computed by decoding-then-hashing so a hash
