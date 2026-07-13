@@ -1,6 +1,6 @@
 {
   "name": "enex-io",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "High-performance parser and generator for Evernote/Apple Notes (.enex) files.",
   "type": "module",
   "bin": {
